@@ -36,15 +36,15 @@ const Contact = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <span className="text-white/80">📧</span>
-                <span className="text-white">your.email@example.com</span>
+                <span className="text-white">nuj2210@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-white/80">📱</span>
-                <span className="text-white">+1 (555) 123-4567</span>
+                <span className="text-white">+1 (678) 895-1266</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-white/80">📍</span>
-                <span className="text-white">Your City, Country</span>
+                <span className="text-white">Duluth, GA</span>
               </div>
             </div>
           </div>

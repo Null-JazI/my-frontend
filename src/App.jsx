@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ThemeProvider, useTheme } from './hooks/useTheme';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
@@ -8,26 +9,14 @@ import Projects from './components/sections/Projects';
 import Experience from './components/sections/Experience';
 import Contact from './components/sections/Contact';
 
-function App() {
+// Main App Content Component
+const AppContent = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const [theme, setTheme] = useState('light');
   const [isLoading, setIsLoading] = useState(true);
+  const { theme, toggleTheme, isLoading: themeLoading } = useTheme();
 
-  // Theme toggle functionality
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.documentElement.classList.toggle('dark');
-  };
-
-  // Initialize theme on component mount
+  // Initialize app
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-    if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    }
-    
     // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -35,11 +24,6 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
-
-  // Save theme preference
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-  }, [theme]);
 
   // Intersection Observer for active section tracking
   useEffect(() => {
@@ -75,8 +59,8 @@ function App() {
     }
   };
 
-  // Loading screen
-  if (isLoading) {
+  // Loading screen - show while theme or app is loading
+  if (isLoading || themeLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
         <div className="text-center">
@@ -144,7 +128,7 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 // Scroll to Top Button Component
 const ScrollToTopButton = () => {
@@ -184,5 +168,14 @@ const ScrollToTopButton = () => {
     </button>
   );
 };
+
+// Main App Component with Theme Provider
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+}
 
 export default App;
