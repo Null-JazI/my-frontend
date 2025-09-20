@@ -69,11 +69,11 @@ const InteractiveTimeline = () => {
       title: 'Full Stack Developer',
       type: 'work',
       icon: <BriefcaseIcon />,
-      company: 'Startup Inc.',
+      company: 'Personal',
       period: '2020 - 2022',
       description: 'My first fully functional project using MySQL and HTML CSS JavaScript.',
       color: 'from-blue-500 to-cyan-600',
-      achievements: ['Mastered MERN stack', 'Led 3 major projects', 'Mentored 2 junior developers', 'Increased team productivity by 25%']
+      achievements: ['Understood full stack development','Deployed first application','Gained experience with databases']
     },
     {
       year: '2024',
@@ -84,7 +84,7 @@ const InteractiveTimeline = () => {
       period: '2024 - Present',
       description: 'Intelligent AI system for online security and assistance.',
       color: 'from-orange-500 to-red-600',
-      achievements: ['40% performance improvement', 'Led team of 5 developers', 'Implemented TypeScript migration', 'Reduced bug reports by 60%']
+      achievements: ['Developed AI models for image recognition','Integrated AI with web applications','Took over as CEO of company in early 2025']
     }
   ];
 
