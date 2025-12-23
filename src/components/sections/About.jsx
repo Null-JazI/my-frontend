@@ -1,4 +1,5 @@
 import React from 'react';
+import pfp from "../../assets/images/logos/pfp.png";
 import { useRevealAnimation, useStaggeredAnimation } from '../../hooks/useIntersectionObserver';
 
 const About = () => {
@@ -116,7 +117,7 @@ const About = () => {
               <div className="relative bg-white dark:bg-gray-700 rounded-2xl p-2 shadow-2xl">
                 <div className="w-full h-96 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-600 dark:to-gray-700 rounded-xl flex items-center justify-center">
                   {/* Placeholder for profile image */}
-                  <div className="text-6xl"><img src='/assets/images/logos/pfp.png'></img></div>
+                  <div className="text-6xl"><img src={pfp} alt='Profile'></img></div>
                 </div>
               </div>
 
